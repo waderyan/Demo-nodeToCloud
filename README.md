@@ -1,77 +1,83 @@
 # Node to Cloud
 
-# Stage 0 - Hello World
+# Stage 1 - Yo
 
-This stage introduces you to Node, get your feet wet with a simple Hello World script. 
+In this stage we scaffold our project. 
 
-First, a little background. Node JS is an increasingly popular technology, especially in startup land. 
-Node is popular for a number of reasons. 
+Yo is short for Yeoman. Yeoman is a very useful npm package for creating project scaffolding. The web dev world is exploding in popularity. 
+Tools like Yeoman help to connect all the different tools together.
 
-1. Write in the same language on the front and back-end. 
-2. Modules are increasingly being shared between the front and back-end, making the ecosystem grow very large. 
-3. Does very well cross-platform. Write on Mac, Linux, or Windows and enjoy a good experience. 
-4. The architecture is event-driven and asynchronous, providing performance and scaling advantages. Many developers prefer this architecture to a multi-threaded environment, which has been known to be perilous. 
-5. Javascript is the client language for more and more database technologies, thus, again, you gain the language advantage. 
-
-There are many other advantages of Node. I prefer the tech stack for the ease and speed of getting an application going. 
-
-This demo will focus on getting us started with Node and getting our application to production fast. We won't spend a ton of time writing code - I'll let you dream up what type of application you want to build. 
-We're going to spend most of the time today getting the scaffolding of our project going and getting the deployment architecture in place. 
+The express generator creates a Node Express app scaffolding. There are a huge variety of generators for all types of stacks.
 
 **Tooling**
 
-Install all the needed tools. 
+1. Yo - `$ npm install -g yo`
+2. Express Generator - `$ npm install -g generator-express`
+3. Sass - `$ gem install sass`  (If Ruby is not installed you'll need to do [that](https://www.ruby-lang.org/en/documentation/installation/) first.)
 
-1. Node - `brew update &&  brew install node` (alternatively install via [nodejs](https://nodejs.org/en/download/))).
-2. VS Code - install on [VS Code's website](https://code.visualstudio.com/) and [CL tool](https://code.visualstudio.com/docs/editor/setup).
-
-    Linux
-
-    `sudo ln -s /path/to/vscode/Code /usr/local/bin/code`
-
-    Mac
-
-    `echo "function code () { VSCODE_CWD="$PWD" open -n -b \"com.microsoft.VSCode\" --args $*; }" >> .zshrc`
-
-
-Create a new server file. 
+**Create app scaffolding**
 
 ```zsh
-touch server.js
+yo express
+# Would you like to create a new directory for your project? n
+# Select a version to install: Basic
+# Select a view engine to use: Jade
+# Select a css preprocessor to use: Sass
+# Select a build tool to use: Gulp
 ```
 
-Install project specific dependencies. 
+Yoeman gives us all sorts of options within the generator. 
+We've chosen the above, but you could easily choose different options and end up with a different scaffold. 
+
+Some explanations for the above options. 
+
+* Jade - is a type of view engine. View engines create HTMl files from special files that are a mix of HTML and a programming language. 
+This allows you to embed programming logic in an HTML page and have it served up after completing the logic. 
+* Sass - is a css preprocessor. It is a programming language for extending CSS. `sass` files go through a pre-processing and are spit out as `css` files.
+Similar to what happens with `jade` files. 
+* Gulp - is a front end build tool, commonly called a task runner. Gulp will automate your workflow and help manage your other tools.
+* Bower - Bower was not specified by Yo, but we use it. Bower manages external dependencies (i.e. other node modules the application depends on).  
+
+**Explore generated files**
+
+Let's take a look at the generated files to get a feel for what we have to work with. 
+
+* `app/` - contains the application code. This is the front end and the backend. 
+  
+We could talk about MVC all day if we wanted. There is a lot to code design, but the above gives us a 10,000 foot view. 
+
+* `config/` - configuration files for the application. 
+* `node_modules/` - directory of node modules used by the application. See package.json for the list. 
+* `public/` - all the files that are given (served up) to the client. 
+  * `components/` - independent pieces of the UI, commonly called components. 
+  * `css/` - stylesheets (post sass compilation). 
+  * `img/` - images
+  * `js/` - javascript files. 
+* `.bowerrc` - configuration for bower. 
+* `.editorconfig` - configuration for editors (i.e. VS Code). 
+* `.gitignore` - files we want git to ignore. 
+* `app.js` - node application code. This is the server's starting point. 
+* `bower.json` - bower's manifest file. 
+* `gulpfile.js` - code to run and specify gulp tasks. 
+* `package.json` - manifest file for the application. 
+
+**Start the application**
+
+Start gulp "default" task. 
 
 ```zsh
-npm install express --save
+$ gulp 
 ```
 
-Write the following code in that file. 
-
-```node
-var express = require('express');
-var app = express();
-
-app.get('/', function(req, res) {
-   res.send('Hello World'); 
-});
-
-app.listen(3000, function() {
-   console.log('Example app listening on port 3000!'); 
-});
-```
-    
-Run the code.
-
-```zsh
-node server.js
-```
-
-Navigate to `localhost:3000` in your browser.
-
-Congratulations! You are running a Node server. 
+Navigate to [localhost:3000](http://localhost:3000) to view your application. 
 
 ## Resources
 
 * [Node Docs](https://nodejs.org/api/)
-* [Express JS Hello World Example](http://expressjs.com/en/starter/hello-world.html)
+* [Express Docs](http://expressjs.com/en/4x/api.html)
+* [Express Generator](https://www.npmjs.com/package/generator-express)
+* [Yo](http://yeoman.io/)
+* [SO: What is view engine?](http://stackoverflow.com/questions/8308485/what-is-view-engine-what-does-it-actually-do)
+* [Jade language reference](http://jade-lang.com/reference/)
+* [Sass Docs](http://sass-lang.com/)
+* [Gulp Docs](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
