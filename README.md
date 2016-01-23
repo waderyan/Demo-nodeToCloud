@@ -1,83 +1,72 @@
 # Node to Cloud
 
-# Stage 1 - Yo
+# Stage 2 - VS Code Features
 
-In this stage we scaffold our project. 
+The text editor you use matters at this stage (in all other stages it doesn't). This stage will demo some of the useful
+features VS Code has for writing and debugging a Node application. 
 
-Yo is short for Yeoman. Yeoman is a very useful npm package for creating project scaffolding. The web dev world is exploding in popularity. 
-Tools like Yeoman help to connect all the different tools together.
+**Intellisense**
 
-The express generator creates a Node Express app scaffolding. There are a huge variety of generators for all types of stacks.
+Intellisense is a dev editor tool for coding productivity. Intellisense is an IDE feature that gives context-aware suggestions while writing code. 
 
-**Tooling**
-
-1. Yo - `$ npm install -g yo`
-2. Express Generator - `$ npm install -g generator-express`
-3. Sass - `$ gem install sass`  (If Ruby is not installed you'll need to do [that](https://www.ruby-lang.org/en/documentation/installation/) first.)
-
-**Create app scaffolding**
+Install TSD. TSD stands for TypeScript Definition Manager makes it easy to install TypeScript definition files into your workspace. 
+TypeScript definition files are what powers intellisense. 
 
 ```zsh
-yo express
-# Would you like to create a new directory for your project? n
-# Select a version to install: Basic
-# Select a view engine to use: Jade
-# Select a css preprocessor to use: Sass
-# Select a build tool to use: Gulp
+$ npm install -g tsd
 ```
 
-Yoeman gives us all sorts of options within the generator. 
-We've chosen the above, but you could easily choose different options and end up with a different scaffold. 
-
-Some explanations for the above options. 
-
-* Jade - is a type of view engine. View engines create HTMl files from special files that are a mix of HTML and a programming language. 
-This allows you to embed programming logic in an HTML page and have it served up after completing the logic. 
-* Sass - is a css preprocessor. It is a programming language for extending CSS. `sass` files go through a pre-processing and are spit out as `css` files.
-Similar to what happens with `jade` files. 
-* Gulp - is a front end build tool, commonly called a task runner. Gulp will automate your workflow and help manage your other tools.
-* Bower - Bower was not specified by Yo, but we use it. Bower manages external dependencies (i.e. other node modules the application depends on).  
-
-**Explore generated files**
-
-Let's take a look at the generated files to get a feel for what we have to work with. 
-
-* `app/` - contains the application code. This is the front end and the backend. 
-  
-We could talk about MVC all day if we wanted. There is a lot to code design, but the above gives us a 10,000 foot view. 
-
-* `config/` - configuration files for the application. 
-* `node_modules/` - directory of node modules used by the application. See package.json for the list. 
-* `public/` - all the files that are given (served up) to the client. 
-  * `components/` - independent pieces of the UI, commonly called components. 
-  * `css/` - stylesheets (post sass compilation). 
-  * `img/` - images
-  * `js/` - javascript files. 
-* `.bowerrc` - configuration for bower. 
-* `.editorconfig` - configuration for editors (i.e. VS Code). 
-* `.gitignore` - files we want git to ignore. 
-* `app.js` - node application code. This is the server's starting point. 
-* `bower.json` - bower's manifest file. 
-* `gulpfile.js` - code to run and specify gulp tasks. 
-* `package.json` - manifest file for the application. 
-
-**Start the application**
-
-Start gulp "default" task. 
+Pull down the Node and Express definition files. 
 
 ```zsh
-$ gulp 
+$ tsd query node express --action install
 ```
 
-Navigate to [localhost:3000](http://localhost:3000) to view your application. 
+Look at the root of your project. There is a new directory called typings. Within that directory are TSD files (`*.d.ts`). VS Code uses 
+those definition files to provide intellisense. 
+
+For example, let's go to app.js (remember this is the starting point of our Node application). 
+
+On the last line of app.js start typing `console.`. Intellisense will show you what methods you can call. This brings the API docs to your finger tips
+as you type. 
+
+**Extensions**
+
+Extensions allow you to customize your code editing experience. There are hundreds of extensions and more and more coming everyday. 
+
+Type `cmd+shift+p` to open the command promp within VS Code. Now type "Install Extensions". You will see a list of extensions you can install. 
+You can browse for extensions here or in the [marketplace](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiy5tX4k7TKAhVEzGMKHRoQDqkQFggcMAA&url=https%3A%2F%2Fmarketplace.visualstudio.com%2F&usg=AFQjCNEjSwCtmqzyky5NS2teOa4IN5uSRQ&sig2=hdrxaQkz1eENVUyOIkqRBw&bvm=bv.112064104,d.cGc). 
+
+Some extensions I find useful. 
+
+* [Spelling and Grammar](https://marketplace.visualstudio.com/items/seanmcbreen.Spell)
+* [Add jsdoc comments](https://marketplace.visualstudio.com/items/stevencl.addDocComments)
+* [jshint](https://marketplace.visualstudio.com/items/dbaeumer.jshint)
+* [Chrome Debugger](https://marketplace.visualstudio.com/items/msjsdiag.debugger-for-chrome)
+* [Bookmarks](https://marketplace.visualstudio.com/items/alefragnani.Bookmarks)
+
+**Debugging**
+
+One of the strongest features of VS Code is the debugging functionality. When I was learning Node the biggest frustration I had was a lack of debugging tools. 
+
+To debug follow these steps. 
+
+1. Click on the debug icon on the far left. 
+2. Click the configure icon to create a default `launch.json` file. 
+3. Click the green play icon to start the application in debug mode. 
+4. Open app.js and place a break-point on the `console.log()` line. 
+5. Click the refresh icon. 
+
+This gives the application and easy to configure debugger. 
+
+**Git Integration**
+
+1. Change one of your files. 
+2. Click the Git icon to the far left. 
+3. See the changes, stage, commit, and push inside VS Code. 
 
 ## Resources
 
-* [Node Docs](https://nodejs.org/api/)
-* [Express Docs](http://expressjs.com/en/4x/api.html)
-* [Express Generator](https://www.npmjs.com/package/generator-express)
-* [Yo](http://yeoman.io/)
-* [SO: What is view engine?](http://stackoverflow.com/questions/8308485/what-is-view-engine-what-does-it-actually-do)
-* [Jade language reference](http://jade-lang.com/reference/)
-* [Sass Docs](http://sass-lang.com/)
-* [Gulp Docs](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
+* [VS Code Debugging](https://code.visualstudio.com/Docs/editor/debugging)
+* [VS Code NodeJS End-to-End](https://code.visualstudio.com/docs/runtimes/nodejs)
+* [Definitely Typed Repository](https://github.com/borisyankov/DefinitelyTyped)
