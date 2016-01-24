@@ -31,5 +31,32 @@ $ azure login
 $ # follow cl instructions
 ```
 
+**Create Azure Website**
+
+Create a website and deploy our application to it. 
+
+```zsh
+azure site create <site-name> --github
+```
+
+> <site-name> is the name of your website. 
+>
+> CL Options:
+> Select location you want (ex. "West US")
+> Fill out your github credentials. 
+
+Run the following command to find your site url. 
+
+```zsh
+azure site list
+```
+
+Locate the URL and navigate to it. 
+
+You should see something like "This web app has been successfully created".
+
+Now, let's publish our app. 
+
+### TODO for some reason azure is not a remote repo  #### Start here on Monday
 
 ## Resources
