@@ -76,7 +76,7 @@ By default `master` is the deploy branch.
 
 To demo how easy it is to get things out to production, let's make a change and redeploy. 
 
-Edit views/index.jade. Change the text "Wade" to your name. Redeploy by running 
+Edit views/index.jade. Add your name after `#{title}`
 
 ```zsh
 git add views/index.jade
