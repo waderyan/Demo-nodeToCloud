@@ -39,7 +39,7 @@ Create a website and deploy our application to it.
 azure site create <site-name> --git
 ```
 
-> <site-name> is the name of your website. 
+> site-name is the name of your website. 
 >
 > CL Options:
 > Select location you want (ex. "West US")
