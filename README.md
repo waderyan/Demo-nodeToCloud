@@ -83,7 +83,7 @@ Additionally, we can add new files. Let's create a new view.
 4. Type `p = "I am a test file"` in test.jade
 5. Navigate to index.js and add the following route after `router.get('/'...`
 
-```
+```js
 router.get('/test', function(req, res) {
   res.render('test');
 });
