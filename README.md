@@ -59,11 +59,21 @@ To debug follow these steps.
 
 This gives the application and easy to configure debugger. 
 
+Let's give it a try. When writing a Javascript application you'll often find yourself using third parties that don't provide adequate documentation. With the debugger we can easily stop the program from executing and examine the objects ourselves.
+
+1. Set a breakpoint on line 7 of `routes/index.js`
+2. Hover your cursor over `req`
+3. Type req in the debug console. 
+
+This gives you a window into your program. 
+
 **Git Integration**
 
 1. Change one of your files. 
 2. Click the Git icon to the far left. 
 3. See the changes, stage, commit, and push inside VS Code. 
+
+I find this useful for code reviews before committing to the main repo. 
 
 ## Resources
 
