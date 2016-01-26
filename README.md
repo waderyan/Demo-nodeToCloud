@@ -33,6 +33,19 @@ Install all the needed tools.
 
     `echo "function code () { VSCODE_CWD="$PWD" open -n -b \"com.microsoft.VSCode\" --args $*; }" >> .zshrc`
 
+**Hello World**
+
+Navigate to the location of your projecdt. 
+
+```zsh
+cd ~/<my-project>
+```
+
+Create a node project. This command will guide you through creating a `package.json` file. Don't worry about too much here (you can see more [here](https://docs.npmjs.com/files/package.json)), other than specifying that the entry point is `server.js`. 
+
+```zsh
+npm init
+```
 
 Create a new server file. 
 
@@ -77,3 +90,4 @@ Congratulations! You are running a Node server.
 
 * [Node Docs](https://nodejs.org/api/)
 * [Express JS Hello World Example](http://expressjs.com/en/starter/hello-world.html)
+* [NPM Package.json Docs](https://docs.npmjs.com/files/package.json)
