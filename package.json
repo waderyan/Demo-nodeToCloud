@@ -1,0 +1,24 @@
+{
+  "name": "demo-node-to-code",
+  "version": "1.0.0",
+  "description": "Demo for Startup Hall Event in Seattle on January 26th, 2016",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waderyan/Demo-nodeToCloud.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/waderyan/Demo-nodeToCloud/issues"
+  },
+  "homepage": "https://github.com/waderyan/Demo-nodeToCloud#readme"
+}
