@@ -71,6 +71,26 @@ $ gulp
 
 Navigate to [localhost:3000](http://localhost:3000) to view your application. 
 
+Gulp is running a module that is watching our files for changes. When the module detects a change, gulp will reload our application. 
+
+Try adding text after `#{title}`. Your application will reload for you. 
+
+Additionally, we can add new files. Let's create a new view. 
+
+1. Right click on the `views` folder in VS Code. 
+2. Click New File. 
+3. Enter "test.jade"
+4. Type `p = "I am a test file"` in test.jade
+5. Navigate to index.js and add the following route after `router.get('/'...`
+
+```js
+router.get('/test', function(req, res) {
+  res.render('test');
+});
+```
+
+Now navigate to [localhost:3000/test](http://localhost:3000/test). 
+
 ## Resources
 
 * [Node Docs](https://nodejs.org/api/)
