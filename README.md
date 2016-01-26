@@ -59,7 +59,7 @@ Install project specific dependencies.
 npm install express --save
 ```
 
-If you look now, you will see a new directory called node_modules. Run `ls` on that directory and you'll see express installed a number of dependencies. 
+If you look now, you will see a new directory called `node_modules`. Run `ls` on that directory and you'll see express installed a number of dependencies. Additionally, you'll see `express` in your list of dependencies in your `package.json` file. 
 
 Write the following code in that file. 
 
