@@ -1,7 +1,5 @@
 # Node to Cloud
 
-Demo for Startup Hall Event in Seattle on January 26th, 2016
-
 What does the demo cover?
 
 * Setting up a Node application with Express. 
